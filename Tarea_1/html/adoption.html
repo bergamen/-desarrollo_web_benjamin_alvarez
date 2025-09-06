@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Form Validation</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1 id="titulo-1">Agregar aviso de adopción</h1>
+        <h1 id="titulo-2" hidden>Hemos recibido la información de adopción, muchas gracias y suerte!</h1>
+        <div id="val-box" hidden>
+            <h2 id="val-msg">Complete los campos invalidos</h2>
+        </div>
+        <form name="myForm" method="post" enctype="multipart/form-data">
+            <div id="lugar" hidden>
+                <h2>Información del lugar de entrega</h2>
+
+                <label for="select-region">Región</label>
+                <select name="select-region" id="select-region" required>
+                    <option value="">Seleccione una región</option>
+                </select><br>
+
+                <label for="select-comuna">Comuna</label>
+                <select name="select-comuna" id="select-comuna" required>
+                    <option value="">Seleccione una comuna</option>
+                </select><br>
+
+                <label for="sector">Sector</label>
+                <input type="text" name="sector" id="sector" minlength="0" maxlength="100" placeholder="Opcional"><br>
+
+               </div>
+
+            <div id="contacto" hidden>
+                <h2>Datos del contacto</h2>
+
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" minlength="3" maxlength="200" placeholder="Obligatorio"><br>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" minlength="15" maxlength="100" required placeholder="example@gmail.com"><br>
+
+                <label for="phone">Número de telefono</label>
+                <input type="tel" name="phone" id="phone" placeholder="Opcional(Obligatorio para whatsapp)"><br>
+
+                <label for="select-contacto">Contactar por</label>
+                <select name="select-contacto" id="select-contacto" required>
+                    <option value="">Seleccione un contacto</option>
+                </select><br>
+
+                <div id="otros" hidden>
+                <label for="otro-contacto">Especifique contacto</label>
+                <input type="text" name="otro-contacto" id="otro-contacto" minlength="5" maxlength="50" placeholder="Obligatorio"><br>
+                </div>
+             </div>
+
+            <div id="info">
+                <h2>Información de los animales en adopción</h2>
+
+                <div class="container">
+                    <div class="left">
+                        <label for="select-tipo">Tipo</label>
+                        <select name="select-tipo" id="select-tipo" required>
+                            <option value="">Seleccione un tipo</option>
+                        </select><br>
+
+                        <label for="edad">Edad</label>
+                        <input type="number" name="edad" id="edad" min = "1" placeholder="Obligatorio"><br>
+                        <label for="fecha">Fecha disponible para entrega</label>
+                        <input type="datetime-local" name="fecha" id="fecha"><br>
+                    </div>
+                    <div class="rigth">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" name="cantidad" id="cantidad" min = "1" placeholder="Obligatorio"><br>
+                        <label for="select-medida">Unidad de medida de la edad</label>
+                        <select name="select-medida" id="select-medida" required>
+                            <option value="">Seleccione una medida</option>
+                        </select><br>
+                        <label for="files">Foto</label>
+                        <input type="file" name="files" id="files" multiple accept="image/*,.pdf" required><br>
+
+                    </div>
+                </div>
+
+                <label for="descripcion">Descripción</label><br>
+                <textarea name="descripcion" id="conf-text-area" cols="50" rows="10" placeholder="Opcional"></textarea>
+
+            </div>
+
+            <div id="validar" hidden>
+                <h2>¿Está seguro que desea agregar este aviso de adopción?</h2>
+            </div>
+
+            <button id="sgte-btn" type="button">Siguiente</button>
+            <button id="submit-btn" type="button">Agregar aviso de adopción</button>
+            <button id="back-btn" type="button">Volver</button>
+
+            <button id="seguro-btn" type="button">Sí, estoy seguro</button>
+            <button id="noseguro-btn" type="button">No, no estoy seguro, quiero volver al formulario</button>
+
+            <button id="portada-btn" type="button" hidden>Volver a la portada</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="../js/select.js"></script>
+    <script type="text/javascript" src="../js/validacion.js"></script>
+</body>
+</html>
