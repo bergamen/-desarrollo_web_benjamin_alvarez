@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.main-container{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.up-container{
+    background-color: seagreen;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    display: block;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    min-height: 15%;
+    
+}
+
+.up-container h2{
+    text-shadow: 0 0px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* NAV BAR STUFF */
+
+.navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar > * {
+    color: var(--black-color);
+    font-family: "Roboto", sans-serif;
+}
+
+.navbar a {
+    position: relative;
+    text-decoration: none;
+    margin: 0em;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
+.navbar-page{
+    margin-left: 3em;
+    margin-right: 3em;
+    transition: transform 0.2s ease;
+    
+}
+
+.navbar-page:hover{
+    transform: scale(1.1,1.1);
+}
+
+.tabla-list{
+    align-self: center;
+    text-align: center;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+
+
+
+.up-list{
+    background-color: seagreen;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: #f4f4f4;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.down-list{
+    min-height: 7em;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    background-color: #f4f4f4;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #f4f4f4;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+
+.conf-container{
+    margin: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    color: black;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+.up-list p{
+    padding-left: 40px;
+    padding-right: 40px;
+    min-width: 4.3em;
+    max-width: 4.3em;
+}
+
+.conf-container p{
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+img{
+    padding-left: 40px;
+    padding-right: 40px;
+    align-self: center;
+    justify-self: center;
+    border-radius: 18px;
+}

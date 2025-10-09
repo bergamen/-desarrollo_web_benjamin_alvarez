@@ -1,0 +1,5 @@
+{
+    "get_ultimos": "SELECT * FROM adoptions ORDER BY id DESC LIMIT 5;",
+    "get_adoptions":"SELECT * FROM adoptions ORDER BY id DESC LIMIT 5 OFFSET 0;",
+    "create_adoption": "INSERT INTO adoptions (region,comuna,sector,nombre,email,telefono,contacto,otro,tipo,fechaEntrega,fechaPublicacion,cantidad,edad,medida,fotos) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s);"
+}
