@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 1</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles_listado.css') }}">
+</head>
+<body>
+    <div class="main-container" id="main-container">
+        <div class="up-container">
+            <div class="botones">
+            <a class="navbar-page" href="{{ url_for('principal') }}">volver</a>
+            </div>
+            <div class="listado">
+                <div class="info-container"><p>Fecha publicación</p></div>
+                <div class="info-container"><p>Fecha entrega</p></div>
+                <div class="info-container"><p>Comuna</p></div>
+                <div class="info-container"><p>Sector</p></div>
+                <div class="info-container"><p>Cantidad tipo<br>edad</p></div>
+                <div class="info-container"><p>Nombre<br>contacto</p></div>
+                <div class="info-container"><p>Total de fotos</p></div>
+            </div>
+        </div>
+        <div class="medium-container">
+
+            {% if data %}
+                {% for conf in data%}
+                <a href="{{ url_for('detalle',id=conf.id) }}">
+                <div class="section">
+                <div class="info">
+                    <span id="fecha_publi_0">{{conf.fechaPublicacion}}</span>
+                </div>
+                <div class="info">
+                    <span id="fecha_entrega_0">{{conf.fechaEntrega}}</span>
+                </div>
+                <div class="info">
+                    <span id="comuna_0">{{conf.comuna}}</span>
+                </div>
+                <div class="info">
+                    <span id="sector_0">{{conf.sector}}</span>
+                </div>
+                <div class="info">
+                    <span id="contacto_0">{{conf.cantidadEdad}}</span>
+                </div>
+                <div class="info">
+                    <span id="nombre_0">{{conf.nombre}}</span>
+                </div>
+                <div class="info">
+                    <span id="fotos_0">{{conf.cantidadFotos}}</span>
+                </div>
+                </div></a>
+                {% endfor%}
+            {% endif %}
+
+            <div class="down-container">
+            <a class="navbar-page" href="{{ url_for('listado',id=siguiente) }}">siguiente</a>
+            <a class="navbar-page" href="{{ url_for('listado',id=atras) }}">atras</a>
+        </div>
+        </div>
+    </div>
+    
+<script lang="javascript" src="{{ url_for('static', filename='js/listado.js') }}"></script>
+</body>
+</html>
+
+    
+

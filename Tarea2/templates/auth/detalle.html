@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 1</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles_listado.css') }}">
+</head>
+<body>
+    <div class="total">
+    {% if data_aviso %}
+    <div class="detalle" id="detalle">
+        <div class="datos">
+        <div class="no-fotos">
+        <div class="entrega">
+            <h3>Lugar de entrega</h3>
+            <span id="region"></span>{{data_aviso.region}}<br>
+            <span id="fEntrega">{{data_aviso.fecha_entrega}}</span>
+        </div>
+        <div class="info-contacto">
+            <h3>Información del contacto:</h3>
+            <span id="nombre">{{data_aviso.nombre}}</span><br>
+            <span id="email">{{data_aviso.email}}</span><br>
+            {% if data_contacto %}
+                {% for conf in data_contacto%}
+                    <span id="contacto">{{conf.nombre}}</span>
+                {% endfor%}
+            {% endif %}
+            
+        </div>
+        <div class="animal">
+            <h3>Información de la mascota</h3>
+            <span id="datos">{{data_aviso.datos}}</span><br>
+            <span id="descripcion">{{data_aviso.descripcion}}</span>
+        </div>
+        </div>
+    {% endif %}
+        <div class="fotos">
+            <h3>Fotos</h3>
+            {% if data_foto %}
+                {% for conf in data_foto%}
+                    <button id="{{conf.es}}" type="button">
+                    <img id="{{conf.im}}" src="{{conf.nombre}}" alt="Placeholder Image" width="320" height="240">
+                    </button>
+                    
+                {% endfor%}
+            {% endif %}
+        </div>
+        </div>
+        <a class="navbar-page" href="{{ url_for('listado',id=0) }}">Volver a la lista de adopciones</a>
+        <a class="navbar-page" href="{{ url_for('principal') }}">Volver a la portada</a>
+    </div>
+
+    <div class="comentatios-total">
+    <div class="detalle1">
+        <h3>Agregar Comentario</h3>
+        <form name="myForm" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" minlength="3" maxlength="200" placeholder="Obligatorio"><br>
+        <label for="descripcion">Comentario</label><br>
+        <textarea name="descripcion" id="conf-text-area" cols="50" rows="4" placeholder="Comentario"></textarea>
+        <button id="sgte-btn" type="button">Agregar comentario</button>
+        <input id="id" type="number" value={{id}} hidden>
+        </form>
+        
+    </div>
+    
+    <div class="detalle">
+        <h3>Comentarios</h3>
+        <ul id="lista-comentarios"></ul>
+    </div>
+    </div>
+    </div>
+    <div class="solo-img" id="solo-img" hidden>
+        <img id="solo" src="../img/gato.jpeg" alt="Placeholder Image" width="800" height="600">
+        <a class="navbar-page" href="{{ url_for('listado',id=0) }}">cerrar</a>
+    </div>
+    
+
+<script lang="javascript" src="{{ url_for('static', filename='js/listado.js') }}"></script>
+<script lang="javascript" src="{{ url_for('static', filename='js/detalle.js') }}"></script>
+</body>
+</html>
+
+    

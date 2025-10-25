@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Estadisticas</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estadisticas_styles.css') }}">
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+    </head>
+    <body>
+        <div class="main-container">
+        <div class="graficos">
+            <div id="container0" style="width:150%; height:300px;"></div>
+            <div id="container1" style="width:150%; height:300px;"></div>
+            <div id="container2" style="width:150%; height:300px;"></div>
+        </div>
+        <a class="navbar-page" href="{{ url_for('principal') }}">Volver a la portada</a>
+        </div>
+    <script lang="javascript" src="{{ url_for('static', filename='js/cambiar_html.js') }}"></script>
+    <script lang="javascript" src="{{ url_for('static', filename='js/estadisticas.js') }}"></script>
+    </body>
+</html>
