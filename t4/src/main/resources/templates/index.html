@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea4</title>
+    <link rel="stylesheet" th:href="@{/css/notas.css}" />
+    <script th:src="@{/js/notas.js}"></script>
+</head>
+<body>
+<h1>Notas del listado de adopción</h1>
+
+<p id="error" style="display:none;color: red; background-color: yellow;"></p>
+<p id="mensaje" style="display:none;background-color: green;"></p>
+
+<div id="formulario" class="agregaNota" hidden>
+    <form id="agregarNota" action="/nota/addnota" method="post">
+        <h3 id="eval">Evaluar</h3>
+        <input id="nota" type="number" name="nota" value="1" min="1" max="7" /><br />
+        <button type="submit">&gt;Agregar nota</button>
+    </form>
+</div>
+
+<div id="listaPersonas" style="display:none;">
+    <h2>Notas</h2>
+    <table id ="tablaPersonas">
+    </table>
+</div>
+
+<button onclick="cambiar_pagina(-1)">Anterior</button>
+<button onclick="cambiar_pagina(1)">Siguiente</button>
+
+
+<script>
+    document.getElementById('agregarNota').addEventListener("submit", function(event) {
+        event.preventDefault();
+        agregaNota();
+        // limpiar formulario
+        const form = document.getElementById('agregarNota');
+        form.reset();
+    });
+</script>
+</body>
+</html>

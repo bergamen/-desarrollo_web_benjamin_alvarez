@@ -1,0 +1,11 @@
+{
+    "get_lates": "SELECT fecha_ingreso,comuna.nombre,sector,cantidad,tipo,edad,foto FROM aviso_adopcion,comuna,(SELECT DISTINC ON (actividad_id),ruta_foto From foto) as fotos WHERE comuna_id = comuna.id AND fotos.actividad_id = aviso_adopcion.id  ORDER BY aviso_adopcion.id DESC LIMIT %s;",
+    "get_page":"SELECT fecha_ingreso,fecha_entrega,comuna.nombre,sector,cantidad,tipo,edad,aviso_adopcion.nombre,contactos.nombre,contactos.identificador,fotos.cantidad FROM aviso_adopcion,comuna,(SELECT DISTINC ON (actividad_id),nombre,identificador) as contactos,(SELECT actividad_id,COUNT(*) as cantidad FROM foto GROUP BY actividad_id) as fotos WHERE comuna_id = comuna.id AND contactos.actividad_id = aviso_adopcion.id AND fotos.actividad_id = aviso_adopcion.id ORDER BY id DESC LIMIT 5 OFFSET %s;",
+    "create_adoption": "INSERT INTO tarea2.aviso_adopcion (fecha_ingreso,comuna_id,sector,nombre,email,celular,tipo,cantidad,edad,unidad_medida,fecha_entrega,descripcion) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);",
+    "create_fotos": "INSERT INTO tarea2.foto (ruta_archivo,nombre_archivo,actividad_id) VALUES (%s,%s,%s);",
+    "create_contactos": "INSERT INTO tarea2.contactar_por (nombre,identificador,actividad_id) VALUES (%s,%s,%s)",
+    "get_last_id":"SELECT id FROM tarea2.aviso_adopcion ORDER BY id DESC LIMIT 1:",
+    "cantidad_tipos":"SELECT tipo,COUNT(tipo) AS conteo FROM tarea2.aviso_adopcion GROUP BY %s;",
+    "grafico_linea": "SELECT DATE(fecha_ingreso) AS dia,COUNT(*) AS cantidad_avisos FROM tarea2.visos_adopcion GROUP BY DATE(fecha_ingreso) ORDER BY dia;",
+    "grafico_barra":"SELECT strftime('%Y-%m', fecha_ingreso) AS mes,str(tipo),COUNT(*) AS cantidad FROM tarea2.avisos_adopcion GROUP BY mes, tipo ORDER BY mes;"
+}

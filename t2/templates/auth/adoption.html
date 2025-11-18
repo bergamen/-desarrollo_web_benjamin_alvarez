@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Form_Validation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <h1 id="titulo-1">Agregar aviso de adopción</h1>
+        <h1 id="titulo-2" hidden>Hemos recibido la información de adopción, muchas gracias y suerte!</h1>
+        <div id="val-box" hidden>
+            <h2 id="val-msg">Complete los campos invalidos</h2>
+        </div>
+        <form name="myForm" method="post" enctype="multipart/form-data">
+            
+            <input type="datetime-local" name="fecha-actual" id="fecha-actual" hidden><br>
+            
+            <div id="lugar" hidden>
+                <h2>Información del lugar de entrega</h2>
+
+                <label for="select-region">Región</label>
+                <select name="select-region" id="select-region" required>
+                    <option value="">Seleccione una región</option>
+                </select><br>
+
+                <label for="select-comuna">Comuna</label>
+                <select name="select-comuna" id="select-comuna" required>
+                    <option value="">Seleccione una comuna</option>
+                </select><br>
+
+                <label for="sector">Sector</label>
+                <input type="text" name="sector" id="sector" minlength="0" maxlength="100" placeholder="Opcional"><br>
+
+               </div>
+
+            <div id="contacto" hidden>
+                <h2>Datos del contacto</h2>
+
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" minlength="3" maxlength="200" placeholder="Obligatorio"><br>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" minlength="15" maxlength="100" required placeholder="example@gmail.com"><br>
+
+                <label for="phone">Número de telefono</label>
+                <input type="tel" name="phone" id="phone" placeholder="Opcional"><br>
+
+                <h2>Contactar por</h2>
+
+                <div class="contactos">
+                    <div class="contac" id="contacto-0">
+                        <select name="select-contacto-0" id="select-contacto-0" required>
+                            <option value="">Seleccione un contacto</option>
+                        </select><br>
+                        <input type="text" name="identidicador-0" id="identidicador-0" minlength="5" maxlength="50" placeholder="Identificador"><br>
+                        
+                    </div>
+                    <div class="contac" id="contacto-1" hidden>
+                        <select name="select-contacto-1" id="select-contacto-1">
+                            <option value="">Seleccione un contacto</option>
+                        </select><br>
+                        <input type="text" name="identidicador-1" id="identidicador-1" minlength="5" maxlength="50" placeholder="Identificador"><br>
+                    </div>
+                    <div class="contac" id="contacto-2" hidden>
+                        <select name="select-contacto-2" id="select-contacto-2">
+                            <option value="">Seleccione un contacto</option>
+                        </select><br>
+                        <input type="text" name="identidicador-2" id="identidicador-2" minlength="5" maxlength="50" placeholder="Identificador"><br>
+                    </div>
+                    <div class="contac" id="contacto-3" hidden>
+                        <select name="select-contacto-3" id="select-contacto-3">
+                            <option value="">Seleccione un contacto</option>
+                        </select><br>
+                        <input type="text" name="identidicador-3" id="identidicador-3" minlength="5" maxlength="50" placeholder="Identificador"><br>
+                    </div>
+                    <div class="contac" id="contacto-4" hidden>
+                        <select name="select-contacto-4" id="select-contacto-4">
+                            <option value="">Seleccione un contacto</option>
+                        </select><br>
+                        <input type="text" name="identidicador-4" id="identidicador-4" minlength="5" maxlength="50" placeholder="Identificador"><br>
+                    </div>
+                    <button name="agregar" id="btn-conc-0" type="button">+</button>
+                </div>
+
+             </div>
+
+            <div id="info">
+                <h2>Información de los animales en adopción</h2>
+
+                <div class="container">
+                    <div class="left">
+                        <label for="select-tipo">Tipo</label>
+                        <select name="select-tipo" id="select-tipo" required>
+                            <option value="">Seleccione un tipo</option>
+                        </select><br>
+
+                        <label for="edad">Edad</label>
+                        <input type="number" name="edad" id="edad" min = "1" placeholder="Obligatorio"><br>
+                        <label for="fecha">Fecha disponible para entrega</label>
+                        <input type="datetime-local" name="fecha" id="fecha"><br>
+                    </div>
+                    <div class="rigth">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" name="cantidad" id="cantidad" min = "1" placeholder="Obligatorio"><br>
+                        <label for="select-medida">Unidad de medida de la edad</label>
+                        <select name="select-medida" id="select-medida" required>
+                            <option value="">Seleccione una medida</option>
+                        </select><br>
+                        <h3>Foto</h3>
+                        <input type="file" name="files0" id="files0" multiple accept="image/png, image/jpg, image/gif, image/jpeg" required><br>
+                        <input type="file" name="files1" id="files1" multiple accept="image/png, image/jpg, image/gif, image/jpeg" hidden><br>
+                        <input type="file" name="files2" id="files2" multiple accept="image/png, image/jpg, image/gif, image/jpeg" hidden><br>
+                        <input type="file" name="files3" id="files3" multiple accept="image/png, image/jpg, image/gif, image/jpeg" hidden><br>
+                        <input type="file" name="files4" id="files4" multiple accept="image/png, image/jpg, image/gif, image/jpeg" hidden><br>
+                        <button name="agregar" id="btn-conc-1" type="button">+</button>
+
+                    </div>
+                </div>
+
+                <h3>Descripción</h3><br>
+                <textarea name="descripcion" id="conf-text-area" cols="50" rows="10" placeholder="Opcional"></textarea>
+
+            </div>
+
+            <div id="validar" hidden>
+                <h2>¿Está seguro que desea agregar este aviso de adopción?</h2>
+            </div>
+
+            <button id="sgte-btn" type="button">Siguiente</button>
+            <button id="submit-btn" type="button">Agregar aviso de adopción</button>
+            <button id="back-btn" type="button">Volver</button>
+
+            <button id="seguro-btn" type="submit">Sí, estoy seguro</button>
+            <button id="noseguro-btn" type="button">No, no estoy seguro, quiero volver al formulario</button>
+
+            <a id="portada-btn" href="{{ url_for('estadisticas') }}" hidden>Volver a la portada</a>
+        </form>
+    </div>
+    <script lang="en" src="{{ url_for('static', filename='js/select.js') }}"></script>
+    <script lang="en" src="{{ url_for('static', filename='js/validacion.js') }}"></script>
+</body>
+</html>

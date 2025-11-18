@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.main-container{
+    display: block;
+}
+
+.graficos{
+    display: flex;
+    width: 1200px;
+}
+
+button{
+    background-color: seagreen;
+    border-radius: 18px;
+    color: #f4f4f4;
+    border: none;
+    font-size: 16px;
+    padding: 5px;
+}
+img{
+    border-radius: 8px;
+}

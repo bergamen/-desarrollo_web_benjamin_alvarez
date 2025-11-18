@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tarea_1</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/principal_styles.css') }}">
+    </head>
+    
+    <body>
+
+        <div class="main-container">
+        <div class="up-container">
+            <h2>Bienvenido al servicio de adopción</h2>
+            <div class="navbar">
+                <a class="navbar-page" href="{{ url_for('adoption') }}">Agregar aviso de adopción</a>
+                <a class="navbar-page" href="{{ url_for('listado',id=0) }}">listado de adopción</a>
+                <a class="navbar-page" href="{{ url_for('estadisticas') }}">Estadisticas</a>
+            </div>
+        </div>
+        
+        <table>
+            <tr><th id="izq">Fecha<br>Publicacion</th><th>Comuna</th><th>Sector</th><th>Cantidad Tipo<br>Edad</th><th id="der">Foto</th></tr>
+            {% if data %}
+            {% for conf in data%}
+            <tr><td>{{conf.fecha}}</td><td>{{conf.comuna}}</td><td>{{conf.sector}}</td><td>{{conf.cantidadEdad}}</td><td><img  src="{{conf.path_image}}" alt="Placeholder Image" width="90" height="90"></td></tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+    </body>
+
+</html>

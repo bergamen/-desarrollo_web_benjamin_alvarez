@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Listado</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles_listado.css') }}">
+</head>
+<body>
+    
+    <div class="main-container">
+    <h2>Listado de Adopción</h2>
+    <a class="navbar-page" href="{{ url_for('principal') }}">volver</a>
+    <a class="navbar-page" href="http://localhost:8080/">Notas</a>
+    <table>
+        <tr>
+            <th id="izq">Fecha<br>Publicacion</th>
+            <th>Fecha<br>Entrega</th>
+            <th>Comuna</th>
+            <th>Sector</th>
+            <th>Cantidad Tipo<br>Edad</th>
+            <th>Nombre<br>Contacto</th>
+            <th id="der">Total fotos</th>
+        </tr>
+        {% if data %}
+        {% for conf in data%}
+        
+        <tr onclick="window.location.href = '{{conf.url}}'">
+            <td>{{conf.fechaPublicacion}}</td>
+            <td>{{conf.fechaEntrega}}</td>
+            <td>{{conf.comuna}}</td>
+            <td>{{conf.sector}}</td>
+            <td>{{conf.cantidadEdad}}</td>
+            <td>{{conf.nombre}}</td>
+            <td>{{conf.cantidadFotos}}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    
+    
+    <a class="navbar-page" href="{{ url_for('listado',id=atras) }}">atras</a>
+    <a class="navbar-page" href="{{ url_for('listado',id=siguiente) }}">siguiente</a>
+
+
+    </div>
+<script lang="en" src="{{ url_for('static', filename='js/listado.js') }}"></script>
+</body>
+</html>
+
+    
+
